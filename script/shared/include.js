@@ -1,6 +1,7 @@
 import { calculateCartQuantity, initHeaderEvents } from "./cart.js";
 
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+  // HEADER
   fetch('header.html')
     .then(res => res.text())
     .then(data => {
@@ -9,101 +10,88 @@ window.addEventListener('DOMContentLoaded', () => {
       initHeaderEvents();
       calculateCartQuantity();
 
-      document.querySelector('.js-dropdown').addEventListener('click', () => {
-        console.log('hlo')
-        document.querySelector('.js-expand-bar').classList.toggle('show');
+      document.querySelector('.js-dropdown')?.addEventListener('click', () => {
+        document.querySelector('.js-expand-bar')?.classList.toggle('show');
       });
 
-
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-      const cart = currentUser?.cart || [];
-
       if (currentUser) {
-        document.querySelector('.show-name').innerHTML = currentUser.username;  
+        document.querySelector('.show-name').innerHTML = currentUser.username;
         document.querySelector('.show-name-dropdown').innerHTML = currentUser.username;
       }
-      const loginLink = document.querySelector('.js-login-link');
-      const signupLink = document.querySelector('.js-signup-link');
-      const logoutLink = document.querySelector('.js-logout-link');
-      const profileLink = document.querySelector('.js-profile-link');
-       const adminLogin = document.querySelector('.js-admin-login');
 
-      const loginLink2 = document.querySelector('.js-login-link2');
-      const signupLink2 = document.querySelector('.js-signup-link2');
-      const logoutLink2 = document.querySelector('.js-logout-link2');
-       const adminLogin2 = document.querySelector('.js-admin-login2');
-     
+      const toggleVisibility = (selector, show) => {
+        const el = document.querySelector(selector);
+        if (el) el.style.display = show ? 'inline-block' : 'none';
+      };
 
+      toggleVisibility('.js-login-link', !currentUser);
+      toggleVisibility('.js-signup-link', !currentUser);
+      toggleVisibility('.js-logout-link', !!currentUser);
+      toggleVisibility('.js-profile-link', !!currentUser);
+      toggleVisibility('.js-admin-login', !currentUser);
 
-      if (currentUser) {
-        if (loginLink) loginLink.style.display = 'none';
-        if (signupLink) signupLink.style.display = 'none';
-             if (adminLogin) adminLogin.style.display = 'none';
-        if (logoutLink) logoutLink.style.display = 'inline-block';
-        if (profileLink) profileLink.style.display = 'inline-block';
+      toggleVisibility('.js-login-link2', !currentUser);
+      toggleVisibility('.js-signup-link2', !currentUser);
+      toggleVisibility('.js-logout-link2', !!currentUser);
+      toggleVisibility('.js-admin-login2', !currentUser);
 
-        if (loginLink2) loginLink2.style.display = 'none';
-                 if (adminLogin2) adminLogin2.style.display = 'none';
-        if (signupLink2) signupLink2.style.display = 'none';
-        if (logoutLink2) logoutLink2.style.display = 'inline-block';
-      } else {
-        if (loginLink) loginLink.style.display = 'inline-block';
-        if (signupLink) signupLink.style.display = 'inline-block';
-        if (logoutLink) logoutLink.style.display = 'none';
-        if (profileLink) profileLink.style.display = 'none';
+      document.querySelector('.js-admin-login')
+        .addEventListener('click', () => {
 
-        if (loginLink2) loginLink2.style.display = 'inline-block';
-        if (signupLink2) signupLink2.style.display = 'inline-block';
-        if (logoutLink2) logoutLink2.style.display = 'none';
-
-      }
-
-
-      // Handle logout click
-      if (logoutLink2) {
-        logoutLink2.addEventListener('click', (e) => {
-          e.preventDefault();
-          localStorage.removeItem('currentUser');
-          window.location.href = 'login.html';
+          if (!localStorage.getItem('admin')) {
+            localStorage.setItem('admin', JSON.stringify({
+              email: 'admin123@gmail.com',
+              password: 'admin@123'
+            }));
+          }
+          const admin = JSON.parse(localStorage.getItem('admin'));
+          console.log(admin);
+          window.location.href = ('admin.html');
         });
-      }
-      if (logoutLink) {
-        logoutLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          localStorage.removeItem('currentUser');
-          window.location.href = 'login.html';
-        });
-      }
+      document.querySelector('.js-admin-login2')
+        .addEventListener('click', () => {
 
+          if (!localStorage.getItem('admin')) {
+            localStorage.setItem('admin', JSON.stringify({
+              email: 'admin123@gmail.com',
+              password: 'admin@123'
+            }));
+          }
+          const admin = JSON.parse(localStorage.getItem('admin'));
+          console.log(admin);
+          window.location.href = ('admin.html');
+        });
+      document.querySelector('.js-logout-link')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login.html';
+      });
+
+      document.querySelector('.js-logout-link2')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('currentUser');
+        window.location.href = 'login.html';
+      });
     });
 
-
+  // FOOTER
   fetch('footer.html')
     .then(res => res.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    const toggleBtn = document.querySelector('.js-toggle-color');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
-      const isToggle=   document.body.classList.toggle('toggle-it');
-         sessionStorage.setItem('theme',isToggle? 'light': 'dark');
-
-      
-      });
-    }
-  }, 100);
-});
-
-window.addEventListener('DOMContentLoaded', () => {
+  // THEME TOGGLE
   const savedTheme = sessionStorage.getItem('theme');
   if (savedTheme === 'light') {
-    document.body.classList.toggle('toggle-it');
-    
+    document.body.classList.add('toggle-it');
   }
-})
+
+  setTimeout(() => {
+    document.querySelector('.js-toggle-color')?.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('toggle-it');
+      sessionStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  }, 100);
+});
