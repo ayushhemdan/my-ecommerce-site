@@ -255,4 +255,4 @@ export const products =[
 
 ]
 
-localStorage.setItem('products',JSON.stringify('products'));
+localStorage.setItem('products',JSON.stringify(products));
