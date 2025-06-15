@@ -1,9 +1,9 @@
-// import { products } from "./shared/products.js";
+import { products } from "./shared/products.js";
 import { calculateCartQuantity, generateProductHTML, showLoginMessage, showToast } from "./shared/cart.js"
 // import { formatCurrency } from "./shared/format-currency.js";
 import { addToCart } from "./shared/add-to-cart.js";
 
-const products = JSON.parse(localStorage.getItem('products')) || [];
+// const products = JSON.parse(localStorage.getItem('products')) || [];
 
 
 
