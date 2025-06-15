@@ -87,6 +87,7 @@ This is a responsive e-commerce frontend website built using **HTML**, **CSS**, 
 ├── search-by-category.html
 └── signup.html
 
+![mountain](https://github.com/user-attachments/assets/b7394404-80c1-45ef-8727-f69e77ed8e70)
 
 
 ## 🔓 Admin Credentials
