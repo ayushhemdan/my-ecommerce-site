@@ -1,4 +1,4 @@
-![Screenshot 2025-06-15 124723](https://github.com/user-attachments/assets/997b78e7-7776-4e49-9803-07f2a5191c87)# 🛒 E-Commerce Frontend Website
+# 🛒 E-Commerce Frontend Website
 
 This is a responsive e-commerce frontend website built using **HTML**, **CSS**, and **JavaScript**. The project uses **Local Storage** and **Session Storage** to manage user sessions, shopping cart, and product data — all without any backend!
 
