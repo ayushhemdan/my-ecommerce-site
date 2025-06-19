@@ -10,6 +10,33 @@ document.addEventListener('DOMContentLoaded', () => {
       initHeaderEvents();
       calculateCartQuantity();
 
+       document.querySelector('.js-search-icon')
+        .addEventListener('click', () => {
+          document.querySelector('.js-search-products').style.display = 'block';
+        })
+
+      document.addEventListener('click', (e) => {
+        const wrapper = document.querySelector('.middle-header');
+        const isSmallScreen = window.innerWidth <= 768;
+        if (isSmallScreen) {
+          if (!wrapper.contains(e.target)) {
+            document.querySelector('.js-search-products').style.display = 'none';
+
+          }
+        }
+      });
+      document.addEventListener('click', (e) => {
+        const wrapper = document.querySelector('.right-header');
+        const isSmallScreen = window.innerWidth <= 768;
+        if (isSmallScreen) {
+          if (!wrapper.contains(e.target)) {
+            document.querySelector('.js-expand-bar')?.classList.remove('show');
+
+          }
+        }
+      });
+
+
       document.querySelector('.js-dropdown')?.addEventListener('click', () => {
         document.querySelector('.js-expand-bar')?.classList.toggle('show');
       });
