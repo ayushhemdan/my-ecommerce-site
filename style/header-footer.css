@@ -236,57 +236,58 @@
       margin: 10px;
     }
     
-
     @media (max-width:700px) {
       .dropdown {
         display: flex;
-
       }
 
       .dropdown i {
-
         padding: 8px;
-
-
       }
 
       .header-container {
         flex-direction: column;
         width: 100%;
-
-
-
       }
-
       .login-header {
         display: none;
       }
 
       .middle-header {
-        display: none;
-
+        margin-bottom: 0.8rem;
+        margin-top: -22px;
+        max-width: 100%;
       }
-      .bar-login-header a i{
-       transform: translateY(0%);
+      .search-icon {
+        top: 60%;
+      }
+
+      .middle-header input {
+        display: none;
+        height: 38px;
+
+        margin-top: 0.5rem;
+      }
+
+      .bar-login-header a i {
+        transform: translateY(0%);
       }
 
       .left-header {
         margin-bottom: 1rem;
+        margin-top: 0.4rem;
+        margin-left: 0;
         width: 100%;
 
       }
-
       .right-header {
 
         width: 100%;
       }
-
       .right-header button {
         height: 100%;
         padding: 10px 18px;
       }
-
-
       .footer-section {
         width: 100%;
         grid-template-columns: repeat(1, 1fr);
