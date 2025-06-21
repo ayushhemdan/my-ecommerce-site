@@ -41,52 +41,6 @@ This is a responsive e-commerce frontend website built using **HTML**, **CSS**, 
 
 ---
 
-
-## 📁 Folder Structure
-
-📦 Project Root
-├── images/ # All product and UI images
-├── script/ # All JavaScript files
-│ ├── add-product.js
-│ ├── cart-item-list.js
-│ ├── checkout.js
-│ ├── home.js
-│ ├── login.js
-│ ├── order-confirmed.js
-│ ├── product-details.js
-│ ├── search-by-category.js
-│ └── signup.js
-├── shared/ # Shared reusable JS modules
-│ ├── cart.js
-│ ├── add-to-cart.js
-│ ├── format-currency.js
-│ └── products.js
-├── style/ # All CSS files
-│ ├── add-product.css
-│ ├── admin.css
-│ ├── cart-item-list.css
-│ ├── checkout.css
-│ ├── general.css
-│ ├── header-footer.css
-│ ├── home.css
-│ ├── login.css
-│ ├── order-confirmed.css
-│ ├── product-details.css
-│ ├── product.css
-│ └── signup.css
-├── add-product.html
-├── admin.html
-├── cart-item-list.html
-├── checkout.html
-├── footer.html
-├── header.html
-├── index.html
-├── login.html
-├── order-confirmed.html
-├── product-details.html
-├── search-by-category.html
-└── signup.html
-
 ## 🖼️ Screenshots
 
 ### 🏠 Home Page
